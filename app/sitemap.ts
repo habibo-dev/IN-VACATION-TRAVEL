@@ -1,20 +1,2 @@
-import type { MetadataRoute } from 'next';
-import { services, destinations } from '@/lib/data';
-
-const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://in-vacation-travel-habibo-devs-projects.vercel.app';
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-  return [
-    { url: base, lastModified: now },
-    { url: `${base}/services`, lastModified: now },
-    { url: `${base}/destinations`, lastModified: now },
-    { url: `${base}/offres`, lastModified: now },
-    { url: `${base}/demande`, lastModified: now },
-    { url: `${base}/a-propos`, lastModified: now },
-    { url: `${base}/contact`, lastModified: now },
-    { url: `${base}/ar`, lastModified: now },
-    ...services.map((service) => ({ url: `${base}/services/${service.id}`, lastModified: now })),
-    ...destinations.map((destination) => ({ url: `${base}/destinations/${destination.id}`, lastModified: now })),
-  ];
-}
+import type {MetadataRoute} from 'next';import {destinations,offers} from '@/lib/data';
+export default function sitemap():MetadataRoute.Sitemap{const base=process.env.NEXT_PUBLIC_SITE_URL||'https://in-vacation-travel.vercel.app';const fixed=['/','/voyages','/destinations','/offres','/billetterie','/hotellerie','/visa','/omra','/voyages-organises','/demande','/a-propos','/contact','/ar'];return [...fixed.map(url=>({url:base+url,lastModified:new Date()})),...destinations.map(d=>({url:base+'/destinations/'+d.slug,lastModified:new Date()})),...offers.map(o=>({url:base+'/voyages/'+o.slug,lastModified:new Date()}))]}
