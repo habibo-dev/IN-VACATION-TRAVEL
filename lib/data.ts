@@ -1,0 +1,10 @@
+export const agency={name:'In Vacation Travel',address:'44 Rue Colonel Bougara, Khemis Miliana 44000, Aïn Defla, Algérie',phone:'0552 42 65 12',rating:'4.7/5',reviewCount:'9',hours:{samedi:'09:00–16:00',dimanche:'09:00–17:00',lundi:'09:00–17:00',mardi:'09:00–17:00',mercredi:'09:00–17:00',jeudi:'09:00–17:00'}}
+export const services=[
+{id:'visa',title:'Assistance visa',desc:'Accompagnement dans la préparation et le suivi de votre dossier, selon les services réellement proposés par l’agence.',image:'https://images.unsplash.com/photo-1559268950-2d7ceb2efa3a?auto=format&fit=crop&w=1200&q=85',icon:'Passport'},
+{id:'billetterie',title:'Billetterie',desc:'Une demande simple pour vos besoins de voyage et vos billets, avec traitement humain par l’agence.',image:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=85',icon:'Plane'},
+{id:'hotels',title:'Réservation d’hôtel',desc:'Transmettez votre destination, vos dates et vos préférences pour recevoir une proposition adaptée.',image:'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85',icon:'Hotel'},
+{id:'sejours',title:'Séjours & voyages',desc:'Construisez votre projet de séjour avec une agence locale et un parcours de demande clair.',image:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85',icon:'MapPinned'}]
+export const destinations=[
+{id:'dubai',country:'Émirats arabes unis',title:'Dubai',desc:'Une destination urbaine spectaculaire entre expériences, shopping et escapades.',image:'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=85'},
+{id:'qatar',country:'Qatar',title:'Qatar',desc:'Une destination moderne à découvrir entre culture, architecture et désert.',image:'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1400&q=85'},
+{id:'oman',country:'Oman',title:'Oman',desc:'Des paysages naturels, des côtes sauvages et une culture riche.',image:'https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1400&q=85'}]
