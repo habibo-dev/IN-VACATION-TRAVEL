@@ -1,10 +1,27 @@
-export const agency={name:'In Vacation Travel',address:'44 Rue Colonel Bougara, Khemis Miliana 44000, Aïn Defla, Algérie',phone:'0552 42 65 12',rating:'4.7/5',reviewCount:'9',hours:{samedi:'09:00–16:00',dimanche:'09:00–17:00',lundi:'09:00–17:00',mardi:'09:00–17:00',mercredi:'09:00–17:00',jeudi:'09:00–17:00'}}
-export const services=[
-{id:'visa',title:'Assistance visa',desc:'Accompagnement dans la préparation et le suivi de votre dossier, selon les services réellement proposés par l’agence.',image:'https://images.unsplash.com/photo-1559268950-2d7ceb2efa3a?auto=format&fit=crop&w=1200&q=85',icon:'Passport'},
-{id:'billetterie',title:'Billetterie',desc:'Une demande simple pour vos besoins de voyage et vos billets, avec traitement humain par l’agence.',image:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=85',icon:'Plane'},
-{id:'hotels',title:'Réservation d’hôtel',desc:'Transmettez votre destination, vos dates et vos préférences pour recevoir une proposition adaptée.',image:'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85',icon:'Hotel'},
-{id:'sejours',title:'Séjours & voyages',desc:'Construisez votre projet de séjour avec une agence locale et un parcours de demande clair.',image:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85',icon:'MapPinned'}]
-export const destinations=[
-{id:'dubai',country:'Émirats arabes unis',title:'Dubai',desc:'Une destination urbaine spectaculaire entre expériences, shopping et escapades.',image:'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=85'},
-{id:'qatar',country:'Qatar',title:'Qatar',desc:'Une destination moderne à découvrir entre culture, architecture et désert.',image:'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1400&q=85'},
-{id:'oman',country:'Oman',title:'Oman',desc:'Des paysages naturels, des côtes sauvages et une culture riche.',image:'https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1400&q=85'}]
+export type TravelOffer = { slug:string; title:string; destination:string; country:string; type:string; duration:string; departure:string; date?:string; price?:number; image:string; themes:string[]; hotel?:string; included:string[]; notIncluded:string[]; summary:string; demo?:boolean; coordinates:[number,number] };
+
+export const agency = {
+  name:'In Vacation Travel', address:'44 Avenue Colonel Bougara, Khemis Miliana, Aïn Defla, Algeria', postal:'044000', phone1:'0552 42 65 12', phone2:'0552 43 56 50', email:'invacationtravels@gmail.com', website:'https://www.invacationtravel.com', instagram:'https://www.instagram.com/in.vacation.travel', tiktok:'https://www.tiktok.com/@in.vacation.travel', agreement:'N°4409', rc:'N°44/00-3869651A23'
+};
+
+export const services = [
+ {id:'billetterie',title:'Billetterie',desc:'Demandez votre billet et recevez un accompagnement personnalisé.',icon:'Plane'},
+ {id:'hotellerie',title:'Hôtellerie',desc:'Recherche et demande de réservation selon votre destination et vos besoins.',icon:'Hotel'},
+ {id:'voyages-organises',title:'Voyages organisés',desc:'Découvrez les voyages organisés locaux et internationaux proposés par l’agence.',icon:'Compass'},
+ {id:'omra',title:'Omra',desc:'Programme et informations Omra sur demande, selon les détails vérifiés par l’agence.',icon:'Star'},
+ {id:'visa',title:'E-visa & dossiers',desc:'Informations et traitement de dossiers pour les services e-visa communiqués par l’agence.',icon:'Passport'},
+];
+
+export const destinations = [
+ {slug:'dubai',name:'Dubaï',country:'Émirats arabes unis',image:'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1400&q=85',coordinates:[25.2048,55.2708] as [number,number],tag:'City break'},
+ {slug:'istanbul',name:'Istanbul',country:'Turquie',image:'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1400&q=85',coordinates:[41.0082,28.9784] as [number,number],tag:'Culture'},
+ {slug:'paris',name:'Paris',country:'France',image:'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1400&q=85',coordinates:[48.8566,2.3522] as [number,number],tag:'City break'},
+ {slug:'makkah',name:'La Mecque',country:'Arabie saoudite',image:'https://images.unsplash.com/photo-1565552629477-2f5e8c6f4a4f?auto=format&fit=crop&w=1400&q=85',coordinates:[21.4225,39.8262] as [number,number],tag:'Religieux'},
+ {slug:'algiers',name:'Alger',country:'Algérie',image:'https://images.unsplash.com/photo-1587974928442-77dc3f7d1f07?auto=format&fit=crop&w=1400&q=85',coordinates:[36.7538,3.0588] as [number,number],tag:'Local'},
+ {slug:'antalya',name:'Antalya',country:'Turquie',image:'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1400&q=85',coordinates:[36.8969,30.7133] as [number,number],tag:'Plage'},
+];
+
+export const offers: TravelOffer[] = destinations.slice(0,5).map((d,i)=>({slug:`${d.slug}-sur-demande`,title:`Séjour ${d.name}`,destination:d.name,country:d.country,type:i===3?'Omra':'Voyage organisé',duration:'Sur demande',departure:'Khemis Miliana',image:d.image,themes:[d.tag,'Famille','Culture'],summary:`Une proposition de voyage à ${d.name}, présentée comme DEMO tant qu’aucun tarif ou calendrier réel n’est confirmé.`,included:['Accompagnement de la demande','Informations selon disponibilité'],notIncluded:['Prix non confirmé','Disponibilités non garanties'],demo:true,coordinates:d.coordinates}));
+
+export const tripTypes=['Voyage organisé','Voyage local','Voyage international','Omra','Hôtel','Billetterie','Visa'];
+export const themes=['Plage','Famille','Luxe','Aventure','Culture','Shopping','Religieux','City break'];
